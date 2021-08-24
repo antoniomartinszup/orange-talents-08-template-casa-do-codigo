@@ -12,6 +12,10 @@ public class AutorDto {
     private String descricao;
     private LocalDateTime dataRegistro = LocalDateTime.now();
 
+    @Deprecated
+    public AutorDto() {
+    }
+
     public AutorDto(Long id, String nome, String email, String descricao, LocalDateTime dataRegistro) {
         this.id = id;
         this.nome = nome;
