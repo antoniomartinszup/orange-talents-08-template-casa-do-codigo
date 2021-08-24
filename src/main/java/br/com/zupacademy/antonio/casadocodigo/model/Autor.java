@@ -15,15 +15,8 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String nome;
-
-    @NotBlank
-    @Email
     private String email;
-
-    @NotBlank
-    @Length(max = 400)
     private String descricao;
     private LocalDateTime dataRegistro = LocalDateTime.now();
 
