@@ -1,10 +1,6 @@
 package br.com.zupacademy.antonio.casadocodigo.model;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
@@ -50,4 +46,3 @@ public class Autor {
         return dataRegistro;
     }
 }
-
