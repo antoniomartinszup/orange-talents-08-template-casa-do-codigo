@@ -1,4 +1,4 @@
-package br.com.zupacademy.antonio.casadocodigo.validation;
+package br.com.zupacademy.antonio.casadocodigo.validate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -7,8 +7,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.List;
 
-
-public class ItemUnicoValidation implements ConstraintValidator<ItemUnico, Object> {
+public class ItemGenericoUnicoValidation implements ConstraintValidator<ItemGenericoUnico, Object> {
 
     private String domainAttibute;
     private Class<?> klass;
@@ -17,7 +16,7 @@ public class ItemUnicoValidation implements ConstraintValidator<ItemUnico, Objec
     private EntityManager em;
 
     @Override
-    public void initialize(ItemUnico params) {
+    public void initialize(ItemGenericoUnico params) {
         klass = params.domainClass();
         domainAttibute = params.fieldName();
     }

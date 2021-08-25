@@ -1,17 +1,19 @@
-package br.com.zupacademy.antonio.casadocodigo.validation;
+package br.com.zupacademy.antonio.casadocodigo.validate;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
-@Constraint(validatedBy = ItemUnicoValidation.class)
+@Constraint(validatedBy = ItemGenericoUnicoValidation.class)
 @Target( { FIELD })
 @Retention(RUNTIME)
-public @interface ItemUnico {
+public @interface ItemGenericoUnico {
 
     Class<?> domainClass();
     String fieldName();
