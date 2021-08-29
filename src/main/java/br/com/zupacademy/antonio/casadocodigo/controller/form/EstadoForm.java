@@ -8,10 +8,9 @@ import br.com.zupacademy.antonio.casadocodigo.validate.ItemGenericoUnico;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 public class EstadoForm {
-
-    private Long id;
 
     @NotEmpty
     @ItemGenericoUnico(domainClass = Estado.class, fieldName = "nome")
@@ -22,12 +21,9 @@ public class EstadoForm {
     private Long idPais;
 
     public Estado converteParaModelEstado(PaisRepository pRepo) {
-        Pais pais = pRepo.findById(idPais).get();
-        return new Estado(this.nome, pais);
-    }
-
-    public Long getId() {
-        return id;
+        Optional<Pais> pais = pRepo.findById(idPais);
+        if (!pais.isPresent()) throw new IllegalArgumentException();
+        return new Estado(this.nome, pais.get());
     }
 
     public String getNome() {

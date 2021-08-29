@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class LivroForm {
 
@@ -66,11 +67,12 @@ public class LivroForm {
 
     public Livro converteParaModelLivro(AutorRepository aRepo, CategoriaRepository cRepo) {
 
-        Autor autor = aRepo.findById(idAutor).get();
-        Categoria categoria = cRepo.findById(idCategoria).get();
+        Optional<Autor> autor = aRepo.findById(idAutor);
+        Optional<Categoria> categoria = cRepo.findById(idCategoria);
+        if (!autor.isPresent() || !categoria.isPresent()) throw  new IllegalArgumentException();
 
         return new Livro(this.titulo, this.resumo, this.preco, this.paginas,this.isbn,
-                categoria, autor, this.sumario, this.lancamento);
+                categoria.get(), autor.get(), this.sumario, this.lancamento);
     }
 
     public String getTitulo() {

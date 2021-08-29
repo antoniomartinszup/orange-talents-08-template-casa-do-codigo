@@ -7,8 +7,6 @@ import javax.validation.constraints.NotEmpty;
 
 public class PaisForm {
 
-    private Long id;
-
     @NotEmpty
     @ItemGenericoUnico(domainClass = Pais.class, fieldName = "nome")
     private String nome;
