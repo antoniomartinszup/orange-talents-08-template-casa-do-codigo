@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
-@PaisComEstado(clienteClass = ClienteForm.class, message = "dsfd")
+@PaisComEstado(clienteClass = ClienteForm.class, message = "") 
 public class ClienteForm {
 
     @Email
