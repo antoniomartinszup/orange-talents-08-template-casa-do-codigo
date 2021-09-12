@@ -11,6 +11,14 @@ public class PaisForm {
     @ItemGenericoUnico(domainClass = Pais.class, fieldName = "nome")
     private String nome;
 
+    @Deprecated
+    public PaisForm() {
+    }
+
+    public PaisForm(String nome) {
+        this.nome = nome;
+    }
+
     public Pais converteParaModelPais() {
         return new Pais(this.nome);
     }

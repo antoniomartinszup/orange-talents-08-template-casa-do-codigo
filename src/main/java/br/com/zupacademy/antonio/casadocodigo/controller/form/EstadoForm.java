@@ -20,6 +20,15 @@ public class EstadoForm {
     @IdUnico(domainClass = Pais.class, fieldName = "id")
     private Long idPais;
 
+    @Deprecated
+    public EstadoForm() {
+    }
+
+    public EstadoForm(String nome, Long idPais) {
+        this.nome = nome;
+        this.idPais = idPais;
+    }
+
     public Estado converteParaModelEstado(PaisRepository pRepo) {
         Optional<Pais> pais = pRepo.findById(idPais);
         if (!pais.isPresent()) throw new IllegalArgumentException();

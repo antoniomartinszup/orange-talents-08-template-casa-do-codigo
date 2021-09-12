@@ -21,6 +21,16 @@ public class AutorForm {
     @Length(max = 400)
     private String descricao;
 
+    @Deprecated
+    public AutorForm() {
+    }
+
+    public AutorForm(String nome, String email, String descricao) {
+        this.nome = nome;
+        this.email = email;
+        this.descricao = descricao;
+    }
+
     public Autor converteParaModelAutor() {
         return new Autor(this.nome, this.email, this.descricao);
     }
